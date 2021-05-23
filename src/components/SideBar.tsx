@@ -10,10 +10,10 @@ interface GenreResponseProps {
 
 interface SideBarProps {
   onClick: (id: number) => void;
-  selected: number;
+  selectedGenreId: number;
 }
 
-export function SideBar({ onClick, selected }: SideBarProps) {
+export function SideBar({ onClick, selectedGenreId }: SideBarProps) {
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function SideBar({ onClick, selected }: SideBarProps) {
             title={genre.title}
             iconName={genre.name}
             onClick={() => onClick(genre.id)}
-            selected={selected === genre.id}
+            selected={selectedGenreId === genre.id}
           />
         ))}
       </div>
